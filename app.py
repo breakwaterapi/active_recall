@@ -792,7 +792,8 @@ def text_to_speech():
                 transcript=text,
                 model_id=model_id,
                 voice=voice_param,
-                language="en"
+                language="en",
+                output_format={"container": "mp3", "sample_rate": 24000, "bit_rate": 64000}
             )
             
             # Combine all chunks into a single audio output
@@ -1040,11 +1041,11 @@ def list_tts_voices():
         
         try:
             # Get available voices from Cartesia
-            response = client.voices.get_all()
+            response = client.voices.list()
             
             # Format the response to include just the essential information
             voice_list = []
-            for voice in response.voices:
+            for voice in response:
                 voice_info = {
                     "id": voice.id,
                     "name": voice.name,
@@ -1512,7 +1513,8 @@ def process_tts_queue():
                     transcript=text,
                     model_id=model_id,
                     voice=voice_param,
-                    language="en"
+                    language="en",
+                    output_format={"container": "mp3", "sample_rate": 24000, "bit_rate": 64000}
                 )
                 
                 # Combine all chunks into a single audio output

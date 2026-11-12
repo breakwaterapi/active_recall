@@ -1,5 +1,4 @@
 from cartesia import Cartesia
-from cartesia.tts import OutputFormat_Raw, TtsRequestIdSpecifier
 import os
 
 client = Cartesia(

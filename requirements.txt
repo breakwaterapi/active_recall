@@ -12,4 +12,4 @@ eventlet==0.39.1
 python-engineio==4.12.0
 python-socketio==5.13.0
 bidict==0.23.1
-cartesia>=0.2.0
+cartesia[websockets]>=4.2,<5
